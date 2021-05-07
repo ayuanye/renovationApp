@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="376" height="120" viewBox="0 0 376 120">
+  <defs>
+    <style>
+      .cls-1, .cls-4, .cls-9 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4, .cls-6 {
+        opacity: 0.1;
+      }
+
+      .cls-5, .cls-6, .cls-8 {
+        fill: none;
+      }
+
+      .cls-5 {
+        stroke: #fff;
+        stroke-width: 6px;
+        opacity: 0.096;
+      }
+
+      .cls-7, .cls-9 {
+        stroke: none;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="矩形_151" data-name="矩形 151" class="cls-1" width="376" height="120"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.41" y1="0.128" x2="0.945" y2="0.813" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3d9ce3"/>
+      <stop offset="1" stop-color="#6ebcf5"/>
+    </linearGradient>
+  </defs>
+  <g id="蒙版组_36" data-name="蒙版组 36" class="cls-2">
+    <path id="路径_173" data-name="路径 173" class="cls-3" d="M0,0H375V120H0Z"/>
+    <circle id="椭圆_8" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(264 55)"/>
+    <circle id="椭圆_8-2" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(279 55)"/>
+    <circle id="椭圆_8-3" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(294 55)"/>
+    <circle id="椭圆_8-4" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(309 55)"/>
+    <circle id="椭圆_8-5" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(324 55)"/>
+    <circle id="椭圆_8-6" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(339 55)"/>
+    <circle id="椭圆_8-7" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(354 55)"/>
+    <circle id="椭圆_8-8" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(369 55)"/>
+    <circle id="椭圆_8-9" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(264 69)"/>
+    <circle id="椭圆_8-10" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(279 69)"/>
+    <circle id="椭圆_8-11" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(294 69)"/>
+    <circle id="椭圆_8-12" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(309 69)"/>
+    <circle id="椭圆_8-13" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(324 69)"/>
+    <circle id="椭圆_8-14" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(339 69)"/>
+    <circle id="椭圆_8-15" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(354 69)"/>
+    <circle id="椭圆_8-16" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(369 69)"/>
+    <circle id="椭圆_8-17" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(264 83)"/>
+    <circle id="椭圆_8-18" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(279 83)"/>
+    <circle id="椭圆_8-19" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(294 83)"/>
+    <circle id="椭圆_8-20" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(309 83)"/>
+    <circle id="椭圆_8-21" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(324 83)"/>
+    <circle id="椭圆_8-22" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(339 83)"/>
+    <circle id="椭圆_8-23" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(354 83)"/>
+    <circle id="椭圆_8-24" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(369 83)"/>
+    <circle id="椭圆_8-25" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(264 97)"/>
+    <circle id="椭圆_8-26" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(279 97)"/>
+    <circle id="椭圆_8-27" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(294 97)"/>
+    <circle id="椭圆_8-28" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(309 97)"/>
+    <circle id="椭圆_8-29" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(324 97)"/>
+    <circle id="椭圆_8-30" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(339 97)"/>
+    <circle id="椭圆_8-31" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(354 97)"/>
+    <circle id="椭圆_8-32" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(369 97)"/>
+    <circle id="椭圆_8-33" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(264 111)"/>
+    <circle id="椭圆_8-34" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(279 111)"/>
+    <circle id="椭圆_8-35" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(294 111)"/>
+    <circle id="椭圆_8-36" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(309 111)"/>
+    <circle id="椭圆_8-37" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(324 111)"/>
+    <circle id="椭圆_8-38" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(339 111)"/>
+    <circle id="椭圆_8-39" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(354 111)"/>
+    <circle id="椭圆_8-40" data-name="椭圆 8" class="cls-4" cx="3.5" cy="3.5" r="3.5" transform="translate(369 111)"/>
+    <g id="椭圆_9" data-name="椭圆 9" class="cls-5" transform="translate(87 104)">
+      <circle class="cls-7" cx="12.5" cy="12.5" r="12.5"/>
+      <circle class="cls-8" cx="12.5" cy="12.5" r="9.5"/>
+    </g>
+    <g id="多边形_1" data-name="多边形 1" class="cls-6" transform="matrix(0.208, 0.978, -0.978, 0.208, 29.181, 44.146)">
+      <path class="cls-7" d="M24.5,0,49,44H0Z"/>
+      <path class="cls-9" d="M 24.5 12.3333625793457 L 10.20835113525391 38 L 38.79164886474609 38 L 24.5 12.3333625793457 M 24.5 0 L 49 44 L 0 44 L 24.5 0 Z"/>
+    </g>
+  </g>
+</svg>

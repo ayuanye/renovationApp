@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        filter: url(#huangguan);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.292" y1="0.107" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7ee8d4"/>
+      <stop offset="1" stop-color="#19bc96"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="矩形_127" data-name="矩形 127" class="cls-1" width="29" height="28" transform="translate(243 266)"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="0.843" y1="0.076" x2="0.233" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#e6ffbe"/>
+    </linearGradient>
+    <filter id="huangguan" x="2" y="5.23" width="47" height="43.539" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#365f0d" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="组_73" data-name="组 73" transform="translate(-232 -254)">
+    <rect id="矩形_117" data-name="矩形 117" class="cls-2" width="50" height="50" rx="16" transform="translate(232 254)"/>
+    <g id="蒙版组_19" data-name="蒙版组 19" class="cls-3" transform="translate(0 -2)">
+      <g class="cls-5" transform="matrix(1, 0, 0, 1, 232, 256)">
+        <path id="huangguan-2" data-name="huangguan" class="cls-4" d="M4.79,22.088,2.481,8.309l6.251,5.206,5.733-9.129,5.113,9.13L26.6,8.309l-2.14,13.779ZM1.574,6.87A1.527,1.527,0,1,1,3.053,5.3,1.527,1.527,0,0,1,1.574,6.87ZM14.548,3.054a1.527,1.527,0,1,1,1.48-1.574,1.527,1.527,0,0,1-1.48,1.574ZM27.52,6.87A1.527,1.527,0,1,1,29,5.3,1.527,1.527,0,0,1,27.52,6.87ZM5.459,25.539a.725.725,0,0,1,0-1.45H23.815a.725.725,0,1,1,0,1.45H5.459Z" transform="translate(11 11.23)"/>
+      </g>
+    </g>
+  </g>
+</svg>

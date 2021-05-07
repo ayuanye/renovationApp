@@ -1,0 +1,45 @@
+.interal .mint-header {
+    background-color: transparent;
+    margin-top: 36px;
+}
+
+.interal .mint-header-title {
+    font-size: 17px;
+}
+
+.interal .mint-header-button.is-left {
+    font-size: 14px;
+}
+
+.interal .mint-header-button.is-right {
+    font-size: 10px;
+}
+
+.interal .mint-navbar .mint-tab-item {
+    color: #3E3E3E;
+    padding: 0;
+}
+
+.interal .mint-tab-item .mint-tab-item-label {
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    line-height: 36px;
+}
+
+.interal .mint-navbar .mint-tab-item.is-selected {
+    border-bottom: 0 solid transparent;
+}
+
+.interal .mint-navbar .mint-tab-item.is-selected .mint-tab-item-label {
+    color: #1082FF;
+    border-bottom: 2px solid #1082FF;
+}
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}

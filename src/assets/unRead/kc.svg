@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1, .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #71a8ff;
+      }
+
+      .cls-4 {
+        fill: #73a2ff;
+      }
+
+      .cls-5 {
+        fill: #739bff;
+      }
+
+      .cls-6 {
+        fill: #7193ff;
+      }
+
+      .cls-8 {
+        fill: #e9f6ff;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="矩形_133" data-name="矩形 133" class="cls-1" width="40" height="40" transform="translate(168 298)"/>
+    </clipPath>
+  </defs>
+  <g id="蒙版组_23" data-name="蒙版组 23" class="cls-2" transform="translate(-168 -298)">
+    <g id="gerenzhongxin" transform="translate(168 298)">
+      <path id="路径_212" data-name="路径 212" class="cls-3" d="M0,0,8,0H32q8,0,8,8V32q0,8-8,8H8q-8,0-8-8V8Q0,0,8,0Z"/>
+      <path id="路径_213" data-name="路径 213" class="cls-4" d="M32,0H20.87A29.55,29.55,0,0,0,0,18.89V32a8,8,0,0,0,8,8H32a8,8,0,0,0,8-8V8A8,8,0,0,0,32,0Z"/>
+      <path id="路径_214" data-name="路径 214" class="cls-5" d="M32,0h-.15A29.5,29.5,0,0,0,10.78,40H32a8,8,0,0,0,8-8V8A8,8,0,0,0,32,0Z"/>
+      <path id="路径_215" data-name="路径 215" class="cls-6" d="M19.42,28.17A29.39,29.39,0,0,0,21.89,40H32a8,8,0,0,0,8-8V8a8,8,0,0,0-3.479-6.6,29.5,29.5,0,0,0-17.1,26.77Z"/>
+      <path id="路径_216" data-name="路径 216" class="cls-7" d="M13.23,6.5m6.5,0h.54q6.5,0,6.5,6.5v2.63q0,6.5-6.5,6.5h-.54q-6.5,0-6.5-6.5V13q0-6.5,6.5-6.5Z"/>
+      <path id="路径_217" data-name="路径 217" class="cls-8" d="M17.62,23.17h4.75a7,7,0,0,1,7,7v.33a1,1,0,0,1-1,1H11.62a1,1,0,0,1-1-1v-.33a7,7,0,0,1,7-7Z"/>
+      <path id="路径_218" data-name="路径 218" class="cls-7" d="M26.88,30.5v-.33a7,7,0,0,0-7-7H17.63a7,7,0,0,0-7,7v.33a1,1,0,0,0,1,1H25.88a1,1,0,0,0,1-1Z"/>
+      <path id="路径_219" data-name="路径 219" class="cls-5" d="M15.36,13.01m.75,0h.06a.663.663,0,0,1,.75.75v1.1a.663.663,0,0,1-.75.75h-.06a.663.663,0,0,1-.75-.75v-1.1A.663.663,0,0,1,16.11,13.01Z"/>
+      <path id="路径_220" data-name="路径 220" class="cls-5" d="M18.59,13.01m.75,0h.06a.663.663,0,0,1,.75.75v1.1a.663.663,0,0,1-.75.75h-.06a.663.663,0,0,1-.75-.75v-1.1A.663.663,0,0,1,19.34,13.01Z"/>
+    </g>
+  </g>
+</svg>

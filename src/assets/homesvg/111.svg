@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="16" viewBox="0 0 42 16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: rgba(0,0,0,0.5);
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-size: 10px;
+        font-family: PingFangSC-Regular, PingFang SC;
+      }
+    </style>
+  </defs>
+  <g id="组_111" data-name="组 111" transform="translate(-30 -945.654)">
+    <rect id="矩形_126" data-name="矩形 126" class="cls-1" width="42" height="16" rx="2" transform="translate(30 945.654)"/>
+    <text id="图文" class="cls-2" transform="translate(41 957.627)"><tspan x="0" y="0">图文</tspan></text>
+  </g>
+</svg>

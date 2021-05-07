@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        filter: url(#peixun);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.217" y1="0.055" x2="0.766" y2="0.95" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffda95"/>
+      <stop offset="1" stop-color="#eaaf10"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.731" x2="0.159" y2="0.935" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff1b4"/>
+    </linearGradient>
+    <filter id="peixun" x="6.5" y="8.727" width="37" height="34.547" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feFlood flood-color="#830e0e" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="组_71" data-name="组 71" transform="translate(-92 -254)">
+    <rect id="矩形_115" data-name="矩形 115" class="cls-1" width="50" height="50" rx="16" transform="translate(92 254)"/>
+    <g class="cls-3" transform="matrix(1, 0, 0, 1, 92, 254)">
+      <path id="peixun-2" data-name="peixun" class="cls-2" d="M29.388,5.563H28.5c-.282,0-.282.111-.282.282V23.653c0,.565-.454.565-.7.565-9.616-.147-11.937,2.972-11.937,2.972S13.263,24.07,3.647,24.218c-.246,0-.7,0-.7-.565V5.846c0-.172-.037-.282-.282-.282H1.891c-.209,0-.282.074-.282.319V25.36c0,.246.111.356.319.356,1.732-.111,9.653-.147,12.182,2.653h2.96c3.279-3.119,10.5-2.763,12.219-2.653.209,0,.319-.111.319-.356V5.882c-.012-.209-.012-.319-.221-.319ZM5.256,22.879c.884,0,4.863-.074,10.316,3.009,5.453-3.082,9.444-3.009,10.316-3.009s.946-.565.946-.565V3.475c0-.811-.393-.639-.393-.639C18.335,3.009,15.56,6.975,15.56,6.975s-2.788-4-10.881-4.139c0,0-.393-.172-.393.639V22.314c.025,0,.086.565.97.565ZM14.946,8.289h1.339V24.328H14.946Z" transform="translate(9.39 9.4)"/>
+    </g>
+  </g>
+</svg>

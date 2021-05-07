@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 22 22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d1d1d1;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #1f91f2;
+      }
+
+      .cls-4 {
+        fill: #fc7265;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="矩形_36" data-name="矩形 36" class="cls-1" width="22" height="22" transform="translate(317 1523)"/>
+    </clipPath>
+  </defs>
+  <g id="蒙版组_5" data-name="蒙版组 5" class="cls-2" transform="translate(-317 -1523)">
+    <g id="CRM_icon_wode" transform="translate(313.419 1519.419)">
+      <path id="路径_28" data-name="路径 28" class="cls-3" d="M14.581,15.638A6.029,6.029,0,1,1,20.61,9.61,6.029,6.029,0,0,1,14.581,15.638Zm0-10.3a4.224,4.224,0,1,0,2.991,1.237,4.229,4.229,0,0,0-2.991-1.237Zm0,0"/>
+      <path id="路径_29" data-name="路径 29" class="cls-3" d="M4.683,25.581a.9.9,0,0,1-.9-.9,10.829,10.829,0,0,1,10.8-10.8,15.447,15.447,0,0,1,4.274.9.982.982,0,0,1,.63,1.125.854.854,0,0,1-1.125.63,13.86,13.86,0,0,0-3.779-.81,9.025,9.025,0,0,0-9,9,.894.894,0,0,1-.9.855Zm0,0"/>
+      <path id="路径_30" data-name="路径 30" class="cls-4" d="M24.479,25.581a.9.9,0,0,1-.9-.9A8.99,8.99,0,0,0,18.135,16.4a.886.886,0,0,1,.72-1.62,10.815,10.815,0,0,1,6.524,9.9.9.9,0,0,1-.9.9Zm0,0"/>
+    </g>
+  </g>
+</svg>

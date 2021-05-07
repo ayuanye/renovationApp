@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f5dada;
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-6 {
+        filter: url(#baoming);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.161" y1="0.044" x2="0.908" y2="0.928" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#99caef"/>
+      <stop offset="1" stop-color="#4a93db"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="矩形_128" data-name="矩形 128" class="cls-1" width="28.588" height="28.588" transform="translate(32 264)"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="0.775" x2="0.106" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fffcea"/>
+    </linearGradient>
+    <filter id="baoming" x="3.722" y="5.206" width="43.556" height="46.588" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#255eba" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#e3f1ff"/>
+    </linearGradient>
+  </defs>
+  <g id="组_70" data-name="组 70" transform="translate(-22 -254)">
+    <rect id="矩形_114" data-name="矩形 114" class="cls-2" width="50" height="50" rx="16" transform="translate(22 254)"/>
+    <g id="蒙版组_20" data-name="蒙版组 20" class="cls-3" transform="translate(1.206 1.206)">
+      <g class="cls-6" transform="matrix(1, 0, 0, 1, 20.79, 252.79)">
+        <path id="baoming-2" data-name="baoming" class="cls-4" d="M22.37,0a2.173,2.173,0,0,1,2.169,2.169v9.343a1.71,1.71,0,0,1-.1.562,1.172,1.172,0,0,1-.28.4L12.806,23.827a1.621,1.621,0,0,0-.221.28,2.551,2.551,0,0,0-.12.322l-.924,3.7a.732.732,0,0,1-.221.3.858.858,0,0,1-.4.16H3.2a2.173,2.173,0,0,1-2.167-2.169V2.169A2.173,2.173,0,0,1,3.2,0Zm1.647,15.308a.53.53,0,0,1,.381.162l2.03,2.028a.685.685,0,0,1,.16.4.721.721,0,0,1-.221.362l-9.4,9.4a.919.919,0,0,1-.181.141,2.567,2.567,0,0,1-.261.08l-2.712.642a.78.78,0,0,1-.421-.12c-.12-.12-.08-.4-.08-.4l.642-2.714a.961.961,0,0,1,.08-.2c.04-.061.12-.181.141-.141l9.442-9.442a.572.572,0,0,1,.4-.2ZM9.652,18.342H6.579a1.024,1.024,0,0,0,0,2.049H9.654a1.024,1.024,0,1,0,0-2.049Zm4.422-6.368h-7.5a1.024,1.024,0,0,0,0,2.049H14.07A1.016,1.016,0,0,0,15.095,13a1.029,1.029,0,0,0-1.025-1.023Zm5.02-6.228H6.579a1.024,1.024,0,0,0,0,2.049H19.1a1.024,1.024,0,1,0,0-2.049Z" transform="translate(11.69 11.21)"/>
+      </g>
+      <path id="baoming-3" data-name="baoming" class="cls-5" d="M24.016,15.308a.53.53,0,0,1,.381.162l2.03,2.028a.685.685,0,0,1,.16.4.721.721,0,0,1-.221.362l-9.4,9.4a.919.919,0,0,1-.181.141,2.567,2.567,0,0,1-.261.08l-2.712.642a.78.78,0,0,1-.421-.12c-.12-.12-.08-.4-.08-.4l.642-2.714a.961.961,0,0,1,.08-.2c.04-.061.12-.181.141-.141l9.442-9.442a.572.572,0,0,1,.4-.2Z" transform="translate(32.483 264)"/>
+    </g>
+  </g>
+</svg>
