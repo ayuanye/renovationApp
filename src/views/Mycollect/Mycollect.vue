@@ -2,7 +2,8 @@
     <div class="contents">
         <NavBar v-show="navShow" :title="title" :left="left"></NavBar>
         <van-card
-          title="北极银灰石"
+          v-for="(option,index) in appOptions" :key="index" :value="option"
+          :title="option.title"
           thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
           >
           <template #tags>
@@ -14,16 +15,16 @@
               </div>
               <div class="priceNum">
                   <span class="yuan">¥</span>
-                  <span class="yuanNum">28</span>
-                  <span class="yuanFan">/m²</span>
+                  <span class="yuanNum">{{option.price}}</span>
+                  <span class="yuanFan">/{{option.unit}}</span>
               </div>
               <div class="mercSite">
-                马可波罗瓷砖（徐东店）
+                {{option.shopname}}
                 <van-icon name="arrow" />
               </div>
               <p class="bossBox">
                   <van-icon name="phone-o" />
-                  <span>张老板</span>
+                  <span>{{option.name}}</span>
               </p>
               <div class="coles">
                 <van-icon name="cross" />
@@ -59,122 +60,8 @@
               </div>
           </template>
       </van-card>
-      <van-card
-          title="北极银灰石"
-          thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-          >
-          <template #tags>
-              <div class="labsList">
-                  <div class="itemLab">现代</div>
-                  <div class="itemLab">简约</div>
-                  <div class="itemLab">时尚</div>
-                  <div class="itemLab">轻奢</div>
-              </div>
-              <div class="priceNum">
-                  <span class="yuan">¥</span>
-                  <span class="yuanNum">28</span>
-                  <span class="yuanFan">/m²</span>
-              </div>
-              <div class="mercSite">
-                马可波罗瓷砖（徐东店）
-                <van-icon name="arrow" />
-              </div>
-              <p class="bossBox">
-                  <van-icon name="phone-o" />
-                  <span>张老板</span>
-              </p>
-              <div class="coles">
-                <van-icon name="cross" />
-              </div>
-          </template>
-      </van-card>
-      <van-card
-          title="北极银灰石"
-          thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-          >
-          <template #tags>
-              <div class="labsList">
-                  <div class="itemLab">现代</div>
-                  <div class="itemLab">简约</div>
-                  <div class="itemLab">时尚</div>
-                  <div class="itemLab">轻奢</div>
-              </div>
-              <div class="priceNum">
-                  <span class="yuan">¥</span>
-                  <span class="yuanNum">28</span>
-                  <span class="yuanFan">/m²</span>
-              </div>
-              <div class="mercSite">
-                马可波罗瓷砖（徐东店）
-                <van-icon name="arrow" />
-              </div>
-              <p class="bossBox">
-                  <van-icon name="phone-o" />
-                  <span>张老板</span>
-              </p>
-              <div class="coles">
-                <van-icon name="cross" />
-              </div>
-          </template>
-      </van-card>
-      <van-card
-          title="北极银灰石"
-          thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-          >
-          <template #tags>
-              <div class="labsList">
-                  <div class="itemLab">现代</div>
-                  <div class="itemLab">简约</div>
-                  <div class="itemLab">时尚</div>
-                  <div class="itemLab">轻奢</div>
-              </div>
-              <div class="priceNum">
-                  <span class="yuan">¥</span>
-                  <span class="yuanNum">28</span>
-                  <span class="yuanFan">/m²</span>
-              </div>
-              <div class="mercSite">
-                马可波罗瓷砖（徐东店）
-                <van-icon name="arrow" />
-              </div>
-              <p class="bossBox">
-                  <van-icon name="phone-o" />
-                  <span>张老板</span>
-              </p>
-              <div class="coles">
-                <van-icon name="cross" />
-              </div>
-          </template>
-      </van-card>
-      <van-card
-          title="北极银灰石"
-          thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-          >
-          <template #tags>
-              <div class="labsList">
-                  <div class="itemLab">现代</div>
-                  <div class="itemLab">简约</div>
-                  <div class="itemLab">时尚</div>
-                  <div class="itemLab">轻奢</div>
-              </div>
-              <div class="priceNum">
-                  <span class="yuan">¥</span>
-                  <span class="yuanNum">28</span>
-                  <span class="yuanFan">/m²</span>
-              </div>
-              <div class="mercSite">
-                马可波罗瓷砖（徐东店）
-                <van-icon name="arrow" />
-              </div>
-              <p class="bossBox">
-                  <van-icon name="phone-o" />
-                  <span>张老板</span>
-              </p>
-              <div class="coles">
-                <van-icon name="cross" />
-              </div>
-          </template>
-      </van-card>
+     
+     
     </div>
 </template>
 
@@ -188,15 +75,31 @@ export default {
   },
   data() {
         return {
+            appOptions:[],
             title:'',
             left:'',
             navShow:true,
         };
   },
+  created(){
+    this.listCase()
+  },
   mounted(){
       this.title = this.$route.meta.title;
       this.left = this.$route.meta.left; 
-  }
+  },
+  methods: {
+      listCase(){
+          let _this = this;
+          _this.$axios.defaults.headers.common["token"] = _this.$Global.getToken('token');
+          _this.$axios.post('/api/wanlshop/goods/followgoods',{
+          }).then(function(res){
+              console.log(res.data)
+              _this.appOptions = res.data.data.rows;
+
+          })
+      }
+  },
 }
 </script>
 

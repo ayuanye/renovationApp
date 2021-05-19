@@ -1,5 +1,5 @@
 <template>
-  <div class="contentBox">
+  <div class="contentEnr">
     <NavBar v-show="navShow" :title="title" :left="left"></NavBar>
     <div class="avatarBox"></div>
     <van-form>
@@ -140,7 +140,7 @@ export default {
 }
 </script>
 <style>
-.contentBox{
+.contentEnr{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -149,14 +149,14 @@ export default {
     bottom: 0;
     right: 0;
 }
-.avatarBox{
+.contentEnr .avatarBox{
     width: 120px;
     height: 120px;
     border-radius: 50%;
     margin:200px auto 100px;
     background: url('../../../public/img/com-zuce-icon.png') 0 0 /100% 100% no-repeat;
 }
-.phone{
+.contentEnr .phone{
   width: 600px;
   height: 80px;
   border:1px solid rgba(0, 0, 0, .1);
@@ -164,34 +164,34 @@ export default {
   margin:30px auto;
  
 }
-.van-field__control{
+.contentEnr .van-field__control{
   font-size: 28px;
   height: 60px;
   line-height: 60px;
 }
-.van-field__error-message{
+.contentEnr .van-field__error-message{
   display: none;
 }
-.sms{
+.contentEnr .sms{
   width: 600px;
   height: 80px;
   border:1px solid rgba(0, 0, 0, .1);
   border-radius: 10px;
   margin:30px auto;
 }
-.van-field__button{
-  width: 200px;
+.contentEnr .van-field__button{
+  /* width: 200px; */
   height: 50px;
   width: 120px;
 }
-.code{
+.contentEnr .code{
   width: 120px;
   height: 50px;
   line-height: 50px;
   border-radius: 4px;
 
 }
-.count{
+.contentEnr .count{
   width: 120px;
   height: 50px;
   background:rgba(0, 0, 0, .06);
@@ -202,14 +202,14 @@ export default {
   line-height: 50px;
 
 }
-.submentBtn{
+.contentEnr .submentBtn{
   height: 80px;
   width: 600px;
   line-height: 80px;
   margin:0 auto;
   margin-top:100px;
 }
-.contentBox .van-icon{
+.contentEnr .van-icon{
   width: 50px;
   height: 50px;
   margin-top: 4px;
@@ -218,14 +218,14 @@ export default {
   text-align: center;
   font-size: 30px;
 }
-.contentBox .van-icon img{
+.contentEnr .van-icon img{
   width: 100%;
   height: 100%;
 }
-.nextPassword{
+.contentEnr .nextPassword{
   margin-top:30px;
 }
-.toGetBack{
+.contentEnr .toGetBack{
   width: 600px;
   height: 30px;
   font-size:24px;
@@ -233,7 +233,7 @@ export default {
   color: #1989fa;
 }
 
-.toGetBack span:nth-child(2){
+.contentEnr .toGetBack span:nth-child(2){
   float:right;
 }
 </style>

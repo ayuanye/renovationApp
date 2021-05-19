@@ -5,12 +5,13 @@
           v-model="search"
           shape="round"
           background="white"
-          placeholder="请输入商家名称"
+          placeholder="请输入商品名称"
         />
         <div class="itemList">
             <div class="shareBox">
                 <van-icon name="http://7niu.caicai.run/com-share-icon3.png" />
-                <van-icon name="like-o" />
+                <van-icon name="like-o" v-if="!shopItem.is_follow" @click="shopFollow()" />
+                <van-icon name="like" v-if="shopItem.is_follow" @click="shopFollow()" style="color:#EDD200" />
             </div>
             <van-tabs v-model="active" 
                 title-active-color="#FF8319"  
@@ -19,22 +20,23 @@
                 >
                 <van-tab class="tabBox" title="主营">
                     <div class="flexBox">
-                        <van-sidebar v-model="activeKey" @change="onChange">
-                            <van-sidebar-item title="标签名1" />
-                            <van-sidebar-item title="标签名2" />
+                        <van-sidebar v-model="activeKey" @change="onChange" >
+                            <van-sidebar-item v-for="(option,index) in titleList" :key="index" :value="option" :title="option.name | setadress" />
+                            <!-- <van-sidebar-item title="标签名2" />
                             <van-sidebar-item title="标签名3" />
                             <van-sidebar-item title="标签名1" />
                             <van-sidebar-item title="标签名2" />
-                            <van-sidebar-item title="标签名3" />
+                            <van-sidebar-item title="标签名3" /> -->
                         </van-sidebar>
                     </div>
                     
                     <div class="goodList">
                         <p class="goodText">所有商品</p>
                         <van-card
-                            title="北极银灰石"
-                            thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-                            @click-thumb="Shopdescript()"
+                            v-for="(option,index) in goodList" :key="index" :value="option"
+                            :title="option.title | setadress10"
+                            :thumb="option.images[0]"
+                            @click="Shopdescript(option)"
                             >
                             <template #tags>
                                 <div class="labsList">
@@ -45,150 +47,25 @@
                                 </div>
                                 <div class="collectNum">
                                     <van-icon name="star" />
-                                    <p>8888人收藏</p>
+                                    <p>{{option.follow}}</p>
                                 </div>
                                 <div class="priceNum">
                                     <span class="yuan">¥</span>
-                                    <span class="yuanNum">28</span>
-                                    <span class="yuanFan">/m²</span>
+                                    <span class="yuanNum">{{option.price}}</span>
+                                    <span class="yuanFan">{{option.unit_name}}</span>
                                 </div>
                             </template>
                             <template #footer>
-                                <van-button size="mini">选规格</van-button>
-                            </template>
-                        </van-card>
-                        <van-card
-                            title="北极银灰石"
-                            thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-                            >
-                            <template #tags>
-                                <div class="labsList">
-                                    <div class="itemLab">现代</div>
-                                    <div class="itemLab">简约</div>
-                                    <div class="itemLab">时尚</div>
-                                    <div class="itemLab">轻奢</div>
-                                </div>
-                                <div class="collectNum">
-                                    <van-icon name="star" />
-                                    <p>8888人收藏</p>
-                                </div>
-                                <div class="priceNum">
-                                    <span class="yuan">¥</span>
-                                    <span class="yuanNum">28</span>
-                                    <span class="yuanFan">/m²</span>
-                                </div>
-                            </template>
-                            <template #footer>
-                                <van-button size="mini">选规格</van-button>
-                            </template>
-                        </van-card>
-                        <van-card
-                            title="北极银灰石"
-                            thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-                            >
-                            <template #tags>
-                                <div class="labsList">
-                                    <div class="itemLab">现代</div>
-                                    <div class="itemLab">简约</div>
-                                    <div class="itemLab">时尚</div>
-                                    <div class="itemLab">轻奢</div>
-                                </div>
-                                <div class="collectNum">
-                                    <van-icon name="star" />
-                                    <p>8888人收藏</p>
-                                </div>
-                                <div class="priceNum">
-                                    <span class="yuan">¥</span>
-                                    <span class="yuanNum">28</span>
-                                    <span class="yuanFan">/m²</span>
-                                </div>
-                            </template>
-                            <template #footer>
-                                <van-button size="mini">选规格</van-button>
-                            </template>
-                        </van-card>
-                        <van-card
-                            title="北极银灰石"
-                            thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-                            >
-                            <template #tags>
-                                <div class="labsList">
-                                    <div class="itemLab">现代</div>
-                                    <div class="itemLab">简约</div>
-                                    <div class="itemLab">时尚</div>
-                                    <div class="itemLab">轻奢</div>
-                                </div>
-                                <div class="collectNum">
-                                    <van-icon name="star" />
-                                    <p>8888人收藏</p>
-                                </div>
-                                <div class="priceNum">
-                                    <span class="yuan">¥</span>
-                                    <span class="yuanNum">28</span>
-                                    <span class="yuanFan">/m²</span>
-                                </div>
-                            </template>
-                            <template #footer>
-                                <van-button size="mini">选规格</van-button>
-                            </template>
-                        </van-card>
-                        <van-card
-                            title="北极银灰石"
-                            thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-                            >
-                            <template #tags>
-                                <div class="labsList">
-                                    <div class="itemLab">现代</div>
-                                    <div class="itemLab">简约</div>
-                                    <div class="itemLab">时尚</div>
-                                    <div class="itemLab">轻奢</div>
-                                </div>
-                                <div class="collectNum">
-                                    <van-icon name="star" />
-                                    <p>8888人收藏</p>
-                                </div>
-                                <div class="priceNum">
-                                    <span class="yuan">¥</span>
-                                    <span class="yuanNum">28</span>
-                                    <span class="yuanFan">/m²</span>
-                                </div>
-                            </template>
-                            <template #footer>
-                                <van-button size="mini">选规格</van-button>
-                            </template>
-                        </van-card>
-                        <van-card
-                            title="北极银灰石"
-                            thumb="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs"
-                            >
-                            <template #tags>
-                                <div class="labsList">
-                                    <div class="itemLab">现代</div>
-                                    <div class="itemLab">简约</div>
-                                    <div class="itemLab">时尚</div>
-                                    <div class="itemLab">轻奢</div>
-                                </div>
-                                <div class="collectNum">
-                                    <van-icon name="star" />
-                                    <p>8888人收藏</p>
-                                </div>
-                                <div class="priceNum">
-                                    <span class="yuan">¥</span>
-                                    <span class="yuanNum">28</span>
-                                    <span class="yuanFan">/m²</span>
-                                </div>
-                            </template>
-                            <template #footer>
-                                <van-button size="mini">选规格</van-button>
+                                <van-button size="normal">选规格</van-button>
                             </template>
                         </van-card>
                     </div>
                 </van-tab>
                 <van-tab title="商家">
-                    <div class="goodName">马可波罗瓷砖（徐东店）</div>
+                    <div class="goodName">{{shopItem.shopname}}</div>
                     <div class="collectNum" style="margin-top:10px">
                         <van-icon name="like" />
-                        <p>8888人收藏</p>
+                        <p>{{shopItem.follow}}人收藏</p>
                     </div>
                     <div class="collectNum" style="margin-top:10px">
                         <van-icon name="http://7niu.caicai.run/com-yueya-icon.png" />
@@ -196,10 +73,10 @@
                     </div>
                     <div class="imgList">
                         <div class="slideBox">
-                            <div class="imgBox">
-                            <img src="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs" alt="">
+                            <div class="imgBox" v-for="(option,index) in shopItem.image" :key="index" :value="option">
+                            <img :src="option" alt="">
                             </div>
-                            <div class="imgBox">
+                            <!-- <div class="imgBox">
                                 <img src="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs" alt="">
                             </div>
                             <div class="imgBox">
@@ -207,21 +84,24 @@
                             </div>
                             <div class="imgBox">
                                 <img src="http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs" alt="">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="siteBox">
                         <van-icon name="map-marked" />
-                        <p class="siteTex">湖北省武汉市武昌区机铁路7号</p>
+                        <p class="siteTex">{{shopItem.address}}</p>
                         <p class="bossBox">
-                            <van-icon name="phone-o" />
-                            <span>张老板</span>
+                            <a @click="Callme()"><van-icon name="phone-o" /></a>
+                            <span>{{shopItem.name}}</span>
                         </p>
                     </div>
                 </van-tab>
+                <van-tab title="安装说明">
+
+                </van-tab>
             </van-tabs>
         </div>
-        <div class="afterBox" v-if="isGood">
+        <div class="afterBox" v-if="isGood==1">
             <div class="afterItem">
                 <van-icon name="http://7niu.caicai.run/com-huoche-icon.png" />
                 配送服务：配送服务配配送服务配送服务配送服务
@@ -231,7 +111,7 @@
                 安装服务：配送服送服务配送服务配送服务配送服务
             </div>
         </div>
-        <div class="afterBox" v-if="isGood">
+        <div class="afterBox" v-if="isGood==1" style="margin-top:15px">
             <div class="afterItem">
                 <van-icon name="volume" />
                 温馨提示：配送服务配配送服务配送服务配送服务
@@ -259,14 +139,53 @@ export default {
       activeKey: 0,
       listItem :6,
       isGood:0,
-      shopId:''
+      shopId:'',
+      id:'',
+      titleList:'',
+      goodList:'',
+      shopItem:{
+          name:'',
+          image:[],
+          address:'',
+          shopname:'',
+          is_follow:'',
+          follow:''
+
+      },
+      listLength:0
     };
   },
+  filters:{
+        setadress(value){
+            if(value.length>3){
+                let str = value;
+                let values = str.substring(0,3);
+                let items = values + "...";
+                return items
+                // return 123456
+            }else{
+                return value
+            }
+        },
+        setadress10(value){
+            if(value.length>10){
+                let str = value;
+                let values = str.substring(0,8);
+                let items = values + "...";
+                return items
+                // return 123456
+            }else{
+                return value
+            }
+        }
+    },
   created(){
     this.title = this.$route.query.title;
     this.left = this.$route.meta.left; 
-    this.shopId = this.$route.query.id;
+    this.id = this.$route.query.id;
+    this.shopId = this.$route.query.shop_id;
     this.GetQueryData()
+    this.queryShopList()
     console.log(this.title,this.left)
   },
   mounted(){
@@ -278,11 +197,13 @@ export default {
     },
     GetQueryData(){
         let that = this;
-        axios.post('/api/wanlshop/goods/index',{
-            title:that.title,
+        axios.post('/api/wanlshop/shop/shopclass',{
             shop_id:that.shopId,
         }).then(function(res){
-            console.log(res)
+            console.log(res.data.data.rows)
+            that.titleList = res.data.data.rows
+            that.listLength = res.data.data.rows.length
+            that.queryGoodList()
         })
     },
     onClick(name, title){
@@ -290,28 +211,72 @@ export default {
         console.log(name, title)
     },
     onChange(index) {
-      
-    //   Notify({ type: 'primary', message: index });
-    
+        //   Notify({ type: 'primary', message: index });
         var list =  document.querySelectorAll('.van-sidebar-item')
         for(var i = 0;i<list.length;i++){
             list[i].style.cssText = 'border-radius:0 0 0 0'
         }
         if(index == 0){
             list[1].style.cssText = 'border-radius:0 20px 0 0'
-        }else if(index >0 && index < this.listItem-1){
+        }else if(index >0 && index < this.listLength-1){
             list[index+1].style.cssText = 'border-radius:0 20px 0 0'
             list[index-1].style.cssText = 'border-radius:0 0 20px 0'
-        }else if(index == this.listItem-1){
+        }else if(index == this.listLength-1){
             list[index-1].style.cssText = 'border-radius:0 0 20px 0'
         }
+        this.queryGoodList()
     },
-    Shopdescript(){
+    Shopdescript(item){
         this.$router.push({
-            query:{},
+            query:{
+                id:item.id
+            },
             path:'/ShopDiscript'
         })
+    },
+    shopFollow(){
+        let that = this;
+        let getToken = '';
+        if (that.$Global.getToken('token')){
+            axios.defaults.headers.common["token"] = that.$Global.getToken('token');
+            axios.post('/api/wanlshop/shop/addfollow',{
+                shop_id:that.shopId,
+            }).then(function(res){
+                console.log(res.data.data)
+                that.shopItem.is_follow = res.data.data 
+                that.$toast(res.data.data ? '已关注':'已取消');
+            })
+        }else {
+            that.$router.push({
+                path:'/Login',
+                query:{}
+            })
+            }
+    },
+    queryGoodList(){
+        let that = this;
+        var classid = that.titleList[that.activeKey].id
+        axios.post('/api/wanlshop/goods/classgoods',{
+            classid:classid,
+        }).then(function(res){
+            that.goodList = res.data.data.rows
+            
+        })
+    },
+    queryShopList(){
+        let that = this;
+        axios.post('/hdvcmKBoQX.php/wanlshop/auths/shop',{
+            shop_id:that.shopId,
+            uid:that.$Global.getUserId('user_id')
+        }).then(function(res){
+            // that.goodList = res.data.data.rows
+            that.shopItem = res.data.data
+        })
+    },
+    Callme(){
+        window.location.href = 'tel://18856080946'
     }
+
   }
 }
 </script>
@@ -351,7 +316,7 @@ export default {
     background-color:#F1F1F1 !important;
 }
 .contentBox .van-tabs{
-    width: 250px;
+    width: 400px;
 }
 .contentBox .itemList{
     width: 690px;
@@ -362,6 +327,9 @@ export default {
     padding:20px 0;
     position: relative;
     box-sizing: border-box;
+    position: fixed;
+    top: 200px;
+    left: 30px;
 }
 .contentBox .van-tabs--line .van-tabs__wrap{
     height: 60px;
@@ -482,11 +450,16 @@ export default {
     height: 34px;
     line-height: 20px;
 }
+.contentBox .van-tab__pane{
+    padding: 0 20px;
+    box-sizing: border-box;
+}
 .contentBox .collectNum .van-icon{
     margin-left: 0;
     color: #EDD200;
     margin-right: 10px;
     float: left;
+    font-size: 30px;
 }
 .contentBox .collectNum p{
     font-size: 18px;
@@ -522,6 +495,7 @@ export default {
     height: 100%;
     background-color:#FDC13A;
     border-radius: 5px;
+    font-size: 18px;
 }
 .contentBox .flexBox{
     /* float: left; */
@@ -533,6 +507,7 @@ export default {
     width: 690px;
     margin:0 auto;
     padding: 0 30 0 0px;
+    box-sizing: border-box;
     /* padding: 0 30px; */
 }
 .contentBox .goodName{
@@ -552,7 +527,7 @@ export default {
     width: 0px;
 }
 .contentBox .slideBox {
-    width: 1000px;
+    max-width: 1000px;
     height: 160px;
     display: flex;
 }
@@ -568,18 +543,26 @@ export default {
     border-radius: 20px;
 }
 .contentBox .siteBox{
+    font-size: 25px;
     width: 100%;
     color: #A9A9A9;
     height: 30px;
-
+    box-sizing: border-box;
+}
+.contentBox .van-icon__image{
+    width: 30px;
+    height: 30px;
 }
 .contentBox .siteBox .van-icon{
     margin-left: 0;
     float: left;
     color: #707070;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
 }
 .contentBox .siteTex{
-    font-size: 20px;
+    font-size: 25px;
     float: left;
     margin-left: 20px;
 }
@@ -601,8 +584,9 @@ export default {
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
-    margin-top:30px;
+    margin-top:600px;
 }
+
 .contentBox .afterItem{
     height: 60px;
     line-height: 60px;
@@ -620,9 +604,24 @@ export default {
     height: 30px;
     padding-top: 5px;
 }
-input::-webkit-input-placeholder {
+.contentBox input::-webkit-input-placeholder {
   /* color: #ffffff !important; */
   /* font-weight: 400; */
   font-size: 25px !important;
+}
+.contentBox .itemList .van-icon-like{
+    color: #EDD200;
+}
+.contentBox .van-card__footer .van-button--normal{
+    padding: 0 ;
+}
+.contentBox .van-tabs__content{
+    width: 690px;
+    overflow: auto;
+    max-height:1000px;
+    overflow-x: hidden;
+}
+.contentBox .tabBox .van-tab__pane{
+    overflow: auto;
 }
 </style>

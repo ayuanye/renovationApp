@@ -1,5 +1,5 @@
 <template>
-  <div class="contentBox">
+  <div class="contentLogin">
     <NavBar v-show="navShow" :title="title" :left="left"></NavBar>
     <div class="LoginAvatarBox"></div>
     <van-form @submit="onSubmit">
@@ -96,7 +96,7 @@ export default {
 }
 </script>
 <style>
-.contentBox{
+.contentLogin{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -105,21 +105,21 @@ export default {
     bottom: 0;
     right: 0;
 }
-.LoginAvatarBox{
+.contentLogin .LoginAvatarBox{
     width: 120px;
     height: 120px;
     border-radius: 50%;
     margin:200px auto 100px;
     background: url('../../../public/img/login.png') 0 0 /100% 100% no-repeat;
 }
-.phone{
+.contentLogin .phone{
   width: 600px;
   height: 80px;
   border:1px solid rgba(0, 0, 0, .1);
   border-radius: 10px;
  
 }
-.van-field__control{
+.contentLogin .van-field__control{
   font-size: 28px;
   height: 60px;
   line-height: 60px;
@@ -127,26 +127,26 @@ export default {
 .van-field__error-message{
   display: none;
 }
-.sms{
+.contentLogin .sms{
   width: 600px;
   height: 80px;
   border:1px solid rgba(0, 0, 0, .1);
   border-radius: 10px;
   margin:30px auto;
 }
-.van-field__button{
+.contentLogin .van-field__button{
   width: 200px;
   height: 50px;
   width: 120px;
 }
-.code{
+.contentLogin .code{
   width: 120px;
   height: 50px;
   line-height: 50px;
   border-radius: 4px;
 
 }
-.count{
+.contentLogin .count{
   width: 120px;
   height: 50px;
   background:rgba(0, 0, 0, .06);
@@ -157,7 +157,7 @@ export default {
   line-height: 50px;
 
 }
-.submentBtn{
+.contentLogin .submentBtn{
   height: 80px;
   width: 600px;
   line-height: 80px;
@@ -165,7 +165,7 @@ export default {
   margin-top:100px;
   font-size: 25px;
 }
-.contentBox .van-icon{
+.contentLogin .van-icon{
   width: 50px;
   height: 50px;
   margin-top: 4px;
@@ -174,27 +174,27 @@ export default {
   text-align: center;
   font-size: 30px;
 }
-.contentBox .van-icon img{
+.contentLogin .van-icon img{
   width: 100%;
   height: 100%;
 }
-.nextPassword{
+.contentLogin .nextPassword{
   margin-top:30px;
 }
-.toGetBack{
+.contentLogin .toGetBack{
   width: 600px;
   height: 30px;
   font-size:24px;
   margin: 20px auto;
   color: #1989fa;
 }
-.phone:nth-child(1){
+.contentLogin .phone:nth-child(1){
   margin:30px auto;
 }
-.phone:nth-child(2){
+.contentLogin .phone:nth-child(2){
   margin:0 auto;
 }
-.toGetBack span:nth-child(2){
+.contentLogin .toGetBack span:nth-child(2){
   float:right;
 }
 </style>

@@ -15,14 +15,15 @@ import less from 'less'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import { Dialog } from 'vant';
+import global from './Global.vue'
 
 Vue.use(less)
 Vue.use(Vant);
 Vue.use(VueAxios, axios)
 Vue.use(Dialog);
 
-
-
+Vue.prototype.$Global = global;
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 Vue.component(TabItem.name, TabItem)
 Vue.component(Tabbar.name, Tabbar);

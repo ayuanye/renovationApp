@@ -25,6 +25,10 @@
           <van-cell title="收货地址" icon="location-o" to="home"/>
           <van-cell title="帮助与反馈" icon="chat-o" to="home"/>
           <van-button round type="warning" @click="goAuto">退出登录</van-button>
+            <!-- <a href="#" download="http://7niu.caicai.run/com-avatar-my.png">
+            <div class="dome">
+            </div>
+            </a> -->
         </div>
         <keep-alive>
           <Tabbar :selected="selected" />
@@ -80,12 +84,17 @@ export default {
         title: '退出登录',
       })
       .then(() => {
-        this.$toast('退出成功');
-        window.localStorage.removeItem('materialsUserInfo')
-        this.$router.push('/Profile')
-        this.materialsUserInfo = ''
+          let that = this;
+          that.$axios.post('/api/wanlshop/users/logout',{
+        }).then(function(res){
+            that.$toast('退出成功');
+            window.localStorage.removeItem('materialsUserInfo')
+            that.$router.push('/Profile')
+            that.materialsUserInfo = ''
+        })
+        
       })
-      .catch(() => {
+      .catch((err) => {
         this.$toast('已取消');
       });
         }
@@ -106,44 +115,44 @@ export default {
   background: url('http://7niu.caicai.run/com-my-bg.png') 0 0 / 100% 560px no-repeat;
   background-color: rgb(247, 244, 247);
 }
-.avatarBox{
+.contentt .avatarBox{
   display: flex;
   width: 690px;
   height: 122px;
   margin: 140px auto 0;
   background:url('http://7niu.caicai.run/com-jiantou.png') 630px 41px / 40px 40px no-repeat;
 }
-.avatarName img{
+.contentt .avatarName img{
   width: 120px;
   height: 120px;
   border: 2px solid #fff;
   border-radius: 50%;
 }
-.nickname{
+.contentt .nickname{
   line-height: 120px;
   margin-left: 30px;
   color: #fff;
   font-size: 50px;
 }
-.van-grid{
+.contentt .van-grid{
   width: 690px;
   margin:40px auto;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
 }
-.van-grid-item{
+.contentt .van-grid-item{
   border:none;
 }
-.van-grid-item .van-grid-item__text{
+.contentt .van-grid-item .van-grid-item__text{
   font-size: 20px !important;
 }
-.van-grid-item__content--center{
+.contentt .van-grid-item__content--center{
   border:none;
   padding: 15px 0;
 }
-.van-grid-item:nth-child(1) .van-grid-item__content--center{
+.contentt .van-grid-item:nth-child(1) .van-grid-item__content--center{
   border-radius: 10px 0 0 10px;
 }
-.van-grid-item:nth-child(4) .van-grid-item__content--center{
+.contentt .van-grid-item:nth-child(4) .van-grid-item__content--center{
   border-radius:0 10px 10px 0;
 }
 .contentt .van-cell{
@@ -164,32 +173,33 @@ export default {
   padding-top:25px;
   box-sizing: border-box;
 }
-.van-cell__title, .van-cell__value{
+.contentt .van-cell__title,.contentt .van-cell__value{
   line-height: 80px;
   padding-left: 20px;
   font-size: 20px !important;
 }
 .contentt .van-button--round{
-  width: 690px;
+  width: 660px;
   height: 80px;
   border: 40px;
   margin:0 45px;
+  box-sizing: border-box;
 }
-.van-dialog{
+.contentt .van-dialog{
   width: 500px;
   height: 180px;
 }
-.van-dialog__header{
+.contentt .van-dialog__header{
   height: 60px;
   font-size: 32px;
   line-height: 60px;
 }
-.van-dialog__footer{
+.contentt .van-dialog__footer{
   height: 72px;
   line-height: 72px;
   
 }
-.van-dialog__cancel{
+.contentt .van-dialog__cancel{
   height: 72px;
   line-height: 72px;
 }
@@ -199,6 +209,14 @@ export default {
 }
 .contentt .van-button__text{
   font-size: 25px;
+}
+.dome{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.contentt .van-button--warning{
+  background-color: #FE5E5B;
 }
 
 </style>

@@ -13,9 +13,9 @@
                     </van-swipe>
                     
                 </div>
-                <div class="title">
+                <div class="title" :model="appNameOpts">
                     <van-card
-                        title="北极银灰石"
+                        :title="appNameOpts.title"
                         >
                         <template #tags>
                             <div class="labsList">
@@ -30,18 +30,18 @@
                             </div>
                             <div class="priceNum">
                                 <span class="yuan">¥</span>
-                                <span class="yuanNum">28</span>
-                                <span class="yuanFan">/m²</span>
+                                <span class="yuanNum">{{appNameOpts.price}}</span>
+                                <span class="yuanFan">/{{appNameOpts.unit_name}}</span>
                             </div>
-                            <div class="icon">
-                                <van-icon name="star-o" />
+                            <div class="icon" @click="followgoods(appNameOpts)">
+                                <van-icon :name="appNameOpts.is_follow == 0 ? 'star-o':'star'" />
                                 <div>
-                                    <span>收藏</span>
+                                    <span>{{appNameOpts.is_follow == 0 ?"收藏":"已收藏"}}</span>
                                 </div>
                             </div>
                         </template>
                         <template #footer>
-                            <van-button size="mini">选规格</van-button>
+                            <van-button size="normal" text='25px'>选规格</van-button>
                         </template>
                     </van-card>
                 </div>
@@ -50,7 +50,7 @@
                         <span>详情</span>
                     </div>
                     <div class="child">
-                        <span>型号：&nbsp;&nbsp;12253437567864754</span>               
+                        <span>型号：&nbsp;&nbsp;{{appNameOpts.sn}}</span>               
                     </div>
                     <div class="child">
                         <span>尺寸：&nbsp;&nbsp;800 * 800 cm</span>
@@ -59,7 +59,7 @@
                         <span>规格：&nbsp;&nbsp;大理石</span>
                     </div>
                     <div class="child">
-                        <span>厂商：&nbsp;&nbsp;马可波罗</span>
+                        <span>厂商：&nbsp;&nbsp;{{appNameOpts.brand_name}}</span>
                     </div>
                 </div>
                 <div class="foot">
@@ -67,7 +67,7 @@
                         <span>施工工艺</span>
                     </div>
                     <div class="foot_down">
-                        <span>施工工艺</span>
+                        <span>{{appNameOpts.content}}</span>
                     </div>
                 </div>
             <!-- </div> -->
@@ -78,6 +78,7 @@
 import { ImagePreview } from 'vant';
 import NavBar from "@/components/NavBar.vue";
 import axios from 'axios';
+import { Toast } from 'vant';
 export default {
     components: {
         ImagePreview,
@@ -85,7 +86,7 @@ export default {
     },
     data() {
         return {
-            appNameOpts:[],
+            appNameOpts:'',
             shoplist:'',
             title:'',
             left:'',
@@ -100,8 +101,13 @@ export default {
         };
     },
     mounted(){
+        Toast.loading({
+            message: '加载中...',
+            forbidClick:true
+        });
       this.title = this.$route.meta.title;
       this.left = this.$route.meta.left; 
+      console.log(this.$route.path,'ssssssssssss') 
     },
     created() {
         this.listCase()
@@ -109,15 +115,34 @@ export default {
     methods: {
         listCase(){
             let _this = this;
-            // axios.post('/api/wanlshop/goods/detail',{
-            //     id:33
-            // }).then(function(res){
-            //     console.log("查看返回什么",res.data.data)
-            //     _this.appNameOpts = res.data.data;
-            // })
+            axios.post('/api/wanlshop/goods/detail',{
+                id:_this.$route.query.id,
+                uid:_this.$Global.getUserId('user_id')
+            }).then(function(res){
+                console.log("查看返回什么",res.data.data)
+                _this.appNameOpts = res.data.data;
+            })
         },
         swiperImgClick(){
             ImagePreview(this.swiperData)
+        },
+        followgoods(appNameOpts){
+            let _this = this;
+            let getToken = '';
+            if (_this.$Global.getToken('token')){
+                axios.defaults.headers.common["token"] = _this.$Global.getToken('token');
+                _this.$axios.post('api/wanlshop/goods/addfollow',{
+                    goods_id:appNameOpts.id
+                }).then(function(response){
+                    console.log(response,"点击关注")
+                    _this.listCase()
+                })
+            }else {
+                _this.$router.push({
+                    path:'/Login',
+                    query:{}
+                })
+            }
         }
     },
 }
@@ -311,6 +336,15 @@ export default {
         color: #3F3F3F;
         font-weight: bold;
         margin-bottom: 20px;
+    }
+    .contenBox .van-icon-star::before{
+        color: #FDC13A;
+    }
+    .contenBox .van-button__content{
+        font-size: 25px;
+    }
+    .contenBox .van-button__text{
+        font-size: 25px;
     }
 </style>
 

@@ -9,7 +9,7 @@
           background="white"
           @search="searchList()"
           @cancel="onCancel"
-          placeholder="请输入商家、商品名称"
+          placeholder="请输入商家名称"
         />
       </div>
       <div class="center">
@@ -17,66 +17,12 @@
         <nav class="msite_nav border-1px">
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a href="javascript:" class="link_to_food">
+              <div class="swiper-slide" >
+                <a href="javascript:" class="link_to_food" v-for="(option,index) in appOptions" :key="index" :value="option" @click="gogoods(option)">
                   <div class="food_container">
-                    <img src="./image/nav/地板.png">
+                    <img :src="option.icon">
                   </div>
-                  <span>地板</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/瓷砖.png">
-                  </div>
-                  <span>瓷砖</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/门.png">
-                  </div>
-                  <span>门</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/窗户-关.png">
-                  </div>
-                  <span>窗</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/class卫浴洁具安装.png">
-                  </div>
-                  <span>洁具</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/空调.png">
-                  </div>
-                  <span>空调</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/暖气.png">
-                  </div>
-                  <span>暖气</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/吊顶.png">
-                  </div>
-                  <span>扣板吊顶</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/吊顶.png">
-                  </div>
-                  <span>大五金</span>
-                </a>
-                <a href="javascript:" class="link_to_food">
-                  <div class="food_container">
-                    <img src="./image/nav/五金 (1).png">
-                  </div>
-                  <span>小五金</span>
+                  <span>{{option.name}}</span>
                 </a>
               </div>
               <div class="swiper-slide">
@@ -108,9 +54,9 @@
             <span>精选好店</span>
           </div>
           <div class="nav_down">
-            <div class="image" v-for="(option,index) in appNameOpts" :key="index" :value="option" :model="shoplist">
-              <img :src="option.image[0]"/>
-              <span>{{option.shopname}}</span>
+            <div class="image" v-for="(option,index) in appNameOpts" :key="index" :value="option" :model="shoplist" @click="goshops(option)">
+              <img :src="option.image ? option.image[0] : 'http://7n.kaokao.mobi/FkEWKOOEKZ7mkpw47rR3r8_e2NFs' "/>
+              <span>{{option.shopname ? option.shopname : '暂无名称'}}</span>
             </div>          
           </div>
         </div>
@@ -141,7 +87,8 @@ const axios = require('axios')
     },
     data() {
       return {
-        isLogin:[],
+        appOptions:[],
+        isLogin:true,
         title:'',
         left:'',
         search:'',
@@ -154,14 +101,15 @@ const axios = require('axios')
     },
     created() {
       this.listCase();
+      this.listicons();
     },
     mounted(){
-      const tokens = JSON.parse(localStorage.getItem('materialsUserInfo'));
-      console.log("token",tokens.token)
-      const getToken = tokens.token
-      if (getToken) {
-        this.isLogin = true
-      }
+      // const tokens = JSON.parse(localStorage.getItem('materialsUserInfo'));
+      // console.log("token",tokens.token)
+      // const getToken = tokens.token
+      // if (getToken) {
+      //   this.isLogin = true
+      // }
       Toast.loading({
         message: '加载中...',
         forbidClick:true
@@ -174,13 +122,29 @@ const axios = require('axios')
       listCase(){
         let _this = this;
         _this.isLogin = true;
+        let userId = '';
+        if (_this.$Global.getToken('token')){
+          _this.userId =  _this.$Global.getUserId('user_id')
+        }else {
+          _this.userId = 0
+        }
+        // axios.defaults.headers.common["token"] = _this.$Global.getToken('token');
         axios.post('/hdvcmKBoQX.php/wanlshop/auths/shoplist',{
             page:1,
-            limit:10
+            limit:10,
+            uid:_this.userId
+            // uid:_this.$Global.getToken('token') ? _this.$Global.getUserId('user_id') : 0
         }).then(function(res){
             _this.appNameOpts = res.data.data.rows;
             _this.isLogin = false;
           console.log(_this.appNameOpts)
+        })
+      },
+      listicons(){
+        let _this = this;
+        _this.$axios.post('/api/wanlshop/basedata/industry',{
+        }).then(function(res){
+          _this.appOptions = res.data.data
         })
       },
       pageScroll() {
@@ -193,6 +157,27 @@ const axios = require('axios')
           path:'/ShopList',
           query:{
             info:_this.search,
+          }
+        })
+      },
+      goshops(option){
+        let _this = this;
+        _this.$router.push({
+          path:'/Merchant',
+          query:{
+              id:option.id,
+              title:option.shopname,
+              shop_id:option.shop_id
+          }
+        })
+      },
+        
+      gogoods(option){
+        let _this = this;
+        _this.$router.push({
+          path:'/ShopList',
+          query:{
+              id:option.id,
           }
         })
       },
@@ -216,76 +201,76 @@ const axios = require('axios')
   padding: 15px 10px;
 
 }
-.active {
+.header .active {
   background: #868783;
 }
-.van-icon-search::before{
+.header .van-icon-search::before{
   font-size: 20px;
 }
-.van-field__control[type='search']{
+.header .van-field__control[type='search']{
   font-size: 25px !important;
 }
-.van-field__body{
+.header .van-field__body{
   font-size: 25px;
 }
-.van-search{
+.header .van-search{
   height: 80px;
   padding: 2px 20px;
   background-color:#FaFaFa !important;
 }
-.van-search .van-cell{
+.header .van-search .van-cell{
   height: 70px;
   line-height: 70px;
   padding: 0px;
   /* background: rgb(214, 210, 214); */
 }
-.van-search__content{
+.header .van-search__content{
   background-color: #F1F1F1;
 }
-.van-field__control{
+.header .van-field__control{
   height: 30px;
 }
-.center{
+.header .center{
   background-color: #FaFaFa;
 }
-.border-1px{
+.header .border-1px{
   margin-top: 10px;
 }
-.msite_nav{
+.header .msite_nav{
   margin: 20px 20px ;
   padding: 20px 0;
   /* height :240px; */
   border-radius: 15px;
   background:white;
 }
-.swiper-wrapper{
+.header .swiper-wrapper{
   height: 100%;
   width: 100%;
 }
-.swiper-slide{
+.header .swiper-slide{
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap :wrap
 }
-.link_to_food{
+.header .link_to_food{
   width: 20%;
 }
-.food_container{
+.header .food_container{
   display: block;
   width: 100%;
   text-align: center;
   /* padding-bottom: 10px; */
 }
-.food_container img{
+.header .food_container img{
   display: inline-block;
   width: 60px;
   height: 50px;
 }
-.link_to_food span{
+.header .link_to_food span{
   font-size: 25px !important;
 }
-.link_to_food span{
+.header .link_to_food span{
   display: block;
   width: 100%;
   text-align: center;
@@ -293,35 +278,35 @@ const axios = require('axios')
   color: #666;
   margin-bottom: 25px;
 }
-.middle{
+.header .middle{
   /* margin: 0px 20px; */
   /* width: 100%; */
   /* height: 300px; */
   padding: 0px 20px 20px 20px;
 }
-.middle img{
+.header .middle img{
   width: 100%;
   height: 220px;
   border-radius: 25px;
   /* padding: 0 15px 10px 5px; */
-}
-.nav_up{
+} 
+.header .nav_up{
   height: 75px;
   /* background: wheat; */
   line-height: 75px;
 }
-.nav_up span{
+.header .nav_up span{
   padding: 0 20px;
   font-size: 40px;
   font-weight: bold;
 }
-.nav_end{
+.header .nav_end{
   margin: 0 20px 10px 20px;
   /* height: 530px; */
   background-color: white;
   border-radius: 15px;
 }
-.nav_down{
+.header .nav_down{
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -329,30 +314,30 @@ const axios = require('axios')
   /* background: tomato; */
   /* height: 10px; */
 }
-.nav_down img{
+.header .nav_down img{
   /* width: ; */
   border-radius: 15px;
   height: 150px;
 }
-.image{
+.header .image{
   width: 43%; 
   padding: 10px 15px 10px 20px;
 }
-.image span{
+.header .image span{
   font-size: 30px;
 }
-.list{
+.header .list{
   height: 300px;
 }
-input::-webkit-input-placeholder {
+.header input::-webkit-input-placeholder {
   /* color: #ffffff !important; */
   /* font-weight: 400; */
   font-size: 25px !important;
 }
-.van-field__body{
+.header .van-field__body{
   height: 100%;
 }
-.van-cell__value{
+.header .van-cell__value{
   padding: 0 15px;
 }
 </style>

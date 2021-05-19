@@ -1,5 +1,5 @@
 <template>
-  <div class="contentBox">
+  <div class="contentPass">
     <NavBar v-show="navShow" :title="title" :left="left"></NavBar>
     <div class="avatarBox"></div>
     <van-form>
@@ -154,7 +154,7 @@ export default {
 }
 </script>
 <style>
-.contentBox{
+.contentPass{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -163,14 +163,14 @@ export default {
     bottom: 0;
     right: 0;
 }
-.avatarBox{
+.contentPass .avatarBox{
     width: 120px;
     height: 120px;
     border-radius: 50%;
     margin:200px auto 100px;
     background: url('../../../public/img/avatar.png') 0 0 /100% 100% no-repeat;
 }
-.phone{
+.contentPass .phone{
   width: 600px;
   height: 80px;
   border:1px solid rgba(0, 0, 0, .1);
@@ -178,34 +178,34 @@ export default {
   margin:0 auto;
   
 }
-.van-field__control{
+.contentPass .van-field__control{
   font-size: 28px;
   height: 60px;
   line-height: 60px;
 }
-.van-field__error-message{
+.contentPass .van-field__error-message{
   display: none;
 }
-.sms{
+.contentPass .sms{
   width: 600px;
   height: 80px;
   border:1px solid rgba(0, 0, 0, .1);
   border-radius: 10px;
   margin:30px auto;
 }
-.van-field__button{
+.contentPass .van-field__button{
   width: 200px;
   height: 50px;
   width: 120px;
 }
-.code{
+.contentPass .code{
   width: 120px;
   height: 50px;
   line-height: 50px;
   border-radius: 4px;
 
 }
-.count{
+.contentPass .count{
   width: 120px;
   height: 50px;
   background:rgba(0, 0, 0, .06);
@@ -216,14 +216,14 @@ export default {
   line-height: 50px;
 
 }
-.submentBtn{
+.contentPass .submentBtn{
   height: 80px;
   width: 500px;
   line-height: 80px;
   margin:0 auto;
   margin-top:100px;
 }
-.contentBox .van-icon{
+.contentPass .van-icon{
   width: 50px;
   height: 50px;
   margin-top: 4px;
@@ -232,11 +232,11 @@ export default {
   text-align: center;
   font-size: 30px;
 }
-.contentBox .van-icon img{
+.contentPass .van-icon img{
   width: 100%;
   height: 100%;
 }
-.nextPassword{
+.contentPass .nextPassword{
   margin-top:30px;
 }
 </style>
