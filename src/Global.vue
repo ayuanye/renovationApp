@@ -20,9 +20,19 @@ function getUserId (name){
         return 0
     }
 }
+function getPhonenumber (name) {
+    const Number = JSON.parse(localStorage.getItem('materialsUserInfo'));
+
+    if(Number){
+        return Number.mobile;
+    }else {
+        return null
+    }
+}
 export default{
     getToken,
     getUserId,
+    getPhonenumber,
 }
 </script>
 

@@ -236,4 +236,8 @@ export default {
 .contentEnr .toGetBack span:nth-child(2){
   float:right;
 }
+.contentEnr .van-button--primary{
+  background-color: #1989fa;
+  border: 0.01333rem solid #1989fa;
+}
 </style>

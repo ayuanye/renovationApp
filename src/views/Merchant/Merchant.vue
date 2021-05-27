@@ -5,13 +5,21 @@
           v-model="search"
           shape="round"
           background="white"
+          @search="searchgoods()"
           placeholder="请输入商品名称"
         />
         <div class="itemList">
             <div class="shareBox">
-                <van-icon name="http://7niu.caicai.run/com-share-icon3.png" />
-                <van-icon name="like-o" v-if="!shopItem.is_follow" @click="shopFollow()" />
-                <van-icon name="like" v-if="shopItem.is_follow" @click="shopFollow()" style="color:#EDD200" />
+                <van-cell @click="showShare = true"><van-icon name="http://7niu.caicai.run/com-share-icon3.png" /></van-cell>
+                <van-share-sheet
+                v-model="showShare"
+                title="立即分享给好友"
+                :options="options"
+                />
+                <div class="shareIcon">
+                    <van-icon name="like-o" v-if="!shopItem.is_follow" @click="shopFollow()" />
+                    <van-icon name="like" v-if="shopItem.is_follow" @click="shopFollow()" style="color:#EDD200" />    
+                </div>
             </div>
             <van-tabs v-model="active" 
                 title-active-color="#FF8319"  
@@ -152,10 +160,25 @@ export default {
           follow:''
 
       },
-      listLength:0
+      listLength:0,
+      showShare: false,
+      options: [
+        [
+          { name: '微信', icon: 'wechat' },
+          { name: '朋友圈', icon: 'wechat-moments' },
+          { name: '微博', icon: 'weibo' },
+          { name: 'QQ', icon: 'qq' },
+        ],
+        [
+          { name: '复制链接', icon: 'link' },
+          { name: '分享海报', icon: 'poster' },
+          { name: '二维码', icon: 'qrcode' },
+          { name: '小程序码', icon: 'weapp-qrcode' },
+        ],
+      ],
     };
   },
-  filters:{
+    filters:{
         setadress(value){
             if(value.length>3){
                 let str = value;
@@ -193,14 +216,25 @@ export default {
   },
   methods:{
     onSubmit(values) {
-      console.log('submit', values);
+    //   console.log('submit', values);
+    },
+    searchgoods(){
+        let _this = this;
+        _this.$axios.post('/api/wanlshop/goods/index',{
+            title:_this.search,
+            shop_id:_this.shopId
+        }).then(function(res){
+            // console.log('123456766666666666666666',res.data)
+            _this.goodList = res.data.data.rows
+            _this.listLength = res.data.data.rows.length
+        })
     },
     GetQueryData(){
         let that = this;
         axios.post('/api/wanlshop/shop/shopclass',{
             shop_id:that.shopId,
         }).then(function(res){
-            console.log(res.data.data.rows)
+            // console.log(res.data.data.rows)
             that.titleList = res.data.data.rows
             that.listLength = res.data.data.rows.length
             that.queryGoodList()
@@ -274,7 +308,16 @@ export default {
         })
     },
     Callme(){
-        window.location.href = 'tel://18856080946'
+        let mobile = this.$Global.getPhonenumber('mobile')
+        if(mobile){
+            window.location.href = 'tel://'+mobile
+        }else{
+            this.$router.push({
+                path:'/Login',
+                query:{}
+            })
+        }
+        
     }
 
   }
@@ -352,6 +395,14 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
+}
+.contentBox .shareIcon{
+    position: absolute;
+    right: 60px;
+    top: -5px;
+    width: 30px;
+    height: 30px;
+
 }
 .contentBox .shareBox .van-icon{
     width: 30px;
@@ -623,5 +674,27 @@ export default {
 }
 .contentBox .tabBox .van-tab__pane{
     overflow: auto;
+}
+.van-share-sheet__header{
+    height: 70px;
+    line-height: 70px;
+    font-size: 25px;
+}
+.van-share-sheet__title{
+    font-size: 25px;
+    line-height: 70px;
+}
+.van-share-sheet__options{
+    height: 150px;
+    line-height: 150px;
+}
+.van-share-sheet__cancel::before{
+    height: 20px;
+}
+.van-share-sheet__cancel{
+    height: 100px;
+    line-height: 100px !important;
+    font-size: 30px !important;
+    border-bottom: 30px;
 }
 </style>

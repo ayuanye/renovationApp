@@ -239,4 +239,8 @@ export default {
 .contentPass .nextPassword{
   margin-top:30px;
 }
+.contentPass .van-button--primary{
+  background-color: #1989fa;
+  border: 0.01333rem solid #1989fa;
+}
 </style>
